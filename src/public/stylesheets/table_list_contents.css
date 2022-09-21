@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.table_list_header {
+	height: 40px;
+	color: #AAAAAA;
+	font-weight: 500;
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+.table_list_contents {
+	height: 120px;
+	font-weight: 400;
+	font-size: 1.0rem;
+}
+
+.line_3px {
+	height: 3px;
+	border: 0 solid #FFFFFF;
+	background-color: #EEEEEE;
+}
+
+.line_2px {
+	height: 2px;
+	border: 0 solid #FFFFFF;
+	background-color: #EEEEEE;
+}
+
+.select_contents:hover {
+	background: rgba(0, 0, 0, .04);
+	text-decoration: none;
+	cursor: pointer;
+}

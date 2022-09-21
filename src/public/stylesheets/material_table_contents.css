@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.table_contents {
+	height:40px;	
+}
+
+#table_contents_image > img {
+	width:auto;
+	max-width:950px;
+	height:auto;
+	min-height:300px;
+	margin-left:auto;
+	margin-right:auto;
+	border:0;
+}
+.table_btn {
+	height:40px;
+	line-height:40px;
+	color:#FFFFFF;
+}
+#left_btn, #right_btn {
+	width:97%;
+	height:40px;
+	cursor:pointer;
+	border-radius: 5px;	
+	text-align:center;
+}
+#left_btn {
+	background-color:#8fb1ff;
+}
+#right_btn {
+	background-color:#e1595a;
+}
+
+.table_contents_empty {
+	height: 10px;
+}

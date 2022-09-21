@@ -1,0 +1,6 @@
+{
+    "host" : "playstartupdbinstance.c3tnx6bwgb1m.ap-northeast-2.rds.amazonaws.com",
+    "user" : "developer",
+    "password" : "Together1!",
+    "database" : "playstartup"
+}

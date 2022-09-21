@@ -1,0 +1,82 @@
+@charset "UTF-8";
+.input_area {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.table_header {
+	font-size:1.2rem;
+	font-weight:bold;
+	height:40px;
+}
+
+.table_contents {
+	width:100%;
+	height:100%;
+	height:40px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius:10px;
+	font-size:1.0rem
+}
+
+input {
+	font-size:1.1rem;
+}
+
+.short_table_contents {
+	height:40px;
+	border-radius:10px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#table_contents_left, #table_contents_middle {
+	width:98%;
+}
+
+#table_contents_right {
+	width:100%;
+}
+
+#submit_btn {
+	height:40px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#8fb1ff;
+	border-radius:10px;
+	border:0;
+	color:#FFFFFF;
+	cursor:pointer;
+}
+
+.table_btn {
+	height:40px;
+	line-height:40px;
+	color:#FFFFFF;	
+}
+
+#left_btn, #right_btn {
+	width:97%;
+	height:40px;
+	cursor:pointer;
+	border-radius: 5px;	
+	text-align:center;
+}
+#left_btn {
+	background-color:#8fb1ff;
+}
+#right_btn {
+	background-color:#e1595a;
+}
+
+.table_contents_empty {
+	height: 30px;
+}
+.line_3px {
+	height: 3px;
+	border: 0 solid #FFFFFF;
+	background-color: #EEEEEE;
+}
+.line_2px {
+	height: 2px;
+	border: 0 solid #FFFFFF;
+	background-color: #EEEEEE;
+}

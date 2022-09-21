@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#contents_middle {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 40px;
+	min-width: 1000px;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.contents_normal_table {
+	width: 95%;
+	min-width: 950px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 5px 10px 5px;
+}
+
+#contents_list_table {
+	width: 100%;
+	min-width: 1000px;
+	padding: 10px 5px 10px 5px;
+}
