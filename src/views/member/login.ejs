@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>헬멧써</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+	<!-- <style>
+		body {
+			width:100%;
+			overflow-x:hidden;
+			background-color:#FFFFFF;
+			font-family:'Montserrat', sans-serif;
+		}
+		#contents {
+			position:relative;
+			top:100px;
+			width:70%;
+			min-width:900px;
+			height:500px;
+			margin-left:auto;
+			margin-right:auto;
+			background-color:#1EADA2;
+			box-shadow: -3px -2px 30px 1px #CCCCCC;
+			border-radius: 20px 20px 20px 20px;
+		}
+		#left_contents {
+			position:relative;
+			top:0;
+			left:0;
+			width:50%;
+			height:100%;
+			float:left;
+			background-color:#FFFFFF;
+			border-radius: 20px 20px 20px 20px;
+		}
+		#contents_top_left {
+			position:relative;
+			top:15px;
+			left:0;
+			width:60px;
+			height:60px;
+		}
+		#contents_top_left > img {
+			position:inherit;
+			left:15px;
+		}
+		#left_contents_top {
+			position:relative;
+			top:50px;
+			width:100%;
+			margin-left:auto;
+			margin-right:auto;
+			text-align:center;
+		}
+		#left_contents_top > span {
+			font-size:1.5em;
+		}
+		#left_contents_middle {
+			position:relative;
+			top:80px;
+		}
+		#left_contents_middle > table {
+			margin-left:auto;
+			margin-right:auto;
+			width:70%;
+		}
+		.input_head {
+			height:40px;
+			font-size:1.1em;
+		}
+		.login_input {
+			width:99%;
+			height:100%;
+			font-size:1.0em;
+			border-radius: 5px 5px 5px 5px;
+		}
+		.input_contents{
+			height:30px;
+			font-size:1.1em;
+		}
+		#left_contents_bottom{
+			position:relative;
+			top:110px;
+			width:100%;
+			text-align:center;
+		}
+		#login_btn {
+			width:70%;
+			height:30px;
+			line-height:30px;
+			margin-left:auto;
+			margin-right:auto;
+			font-size:.9rem;
+			background-color:#009af1;
+			color:#FFFFFF;
+			border-radius:10px;
+			cursor:pointer;
+		}
+		#right_contents {
+			width:50%;
+			height:100%;
+			float:right;
+		}
+		#right_contents_top {
+			position:relative;
+			top:170px;
+			width:100%;
+			text-align:center;
+		}
+		#right_contents_top > span {
+			font-size:1.9rem;
+			color:#FFFFFF;
+		}
+		#right_contents_middle { 
+			position:relative;
+			top:210px;
+			width:100%;
+			text-align:center;	
+		}
+		#right_contents_middle > span {
+			font-size:1.2rem;
+			color:#FFFFFF;
+		}
+		
+	</style> -->
+	
+	<script>
+		$(document).ready(function(){
+			$("#login_btn").click(function(){
+				var emailVal = $("#email_text").val();
+				var passwordVal = $("#password_text").val();
+				if(emailVal.length == 0){
+					alert('이메일을 입력해 주세요.');
+				}
+				else if(passwordVal.length == 0){
+					alert('비밀번호를 입력해 주세요.');
+				}
+				else {
+					$("#loginForm").submit();
+				}
+		    });
+			
+			$("#password_text").keydown(function(key){
+				if(key.keyCode == 13){
+					$("#login_btn").trigger('click');
+				}
+			});
+		})
+	</script>
+</head>
+	
+<body>
+	<!-- Root element for center items -->
+	<div class="flex flex-col h-screen bg-gray-100">
+		<!-- Auth Card Container -->
+		<div class="grid place-items-center mx-2 my-20 sm:my-auto">
+			<!-- Auth Card -->
+			<div class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12 
+				px-6 py-10 sm:px-10 sm:py-6 
+				bg-white rounded-lg shadow-md lg:shadow-lg">
+
+				<!-- Card Title -->
+				<h2 class="text-center font-semibold text-3xl lg:text-4xl text-gray-800">
+					Login
+				</h2>
+
+				<form class="mt-10" method="POST" action="/v3/member/login">
+					<!-- Email Input -->
+					<label for="email" class="block text-xs font-semibold text-gray-600 uppercase">E-mail</label>
+					<input id="email" type="email" name="email" placeholder="e-mail address" autocomplete="email"
+						class="block w-full py-3 px-1 mt-2 
+						text-gray-800 appearance-none 
+						border-b-2 border-gray-100
+						focus:text-gray-500 focus:outline-none focus:border-gray-200"
+						required />
+
+					<!-- Password Input -->
+					<label for="password" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
+					<input id="password" type="password" name="password" placeholder="password" autocomplete="current-password"
+						class="block w-full py-3 px-1 mt-2 mb-4
+						text-gray-800 appearance-none 
+						border-b-2 border-gray-100
+						focus:text-gray-500 focus:outline-none focus:border-gray-200"
+						required />
+
+					<!-- Auth Buttton -->
+					<button id = "login_btn" 
+						class="w-full py-3 mt-10 bg-gray-800 rounded-sm
+						font-medium text-white uppercase
+						focus:outline-none hover:bg-gray-700 hover:shadow-none">
+						Login
+					</button>
+
+					<!-- Another Auth Routes -->
+					<div class="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
+						<a href="forgot-password" class="flex-2 underline">
+							Forgot password?
+						</a>
+
+						<p class="flex-1 text-gray-500 text-md mx-4 my-1 sm:my-auto">
+							or
+						</p>
+			
+						<a href="register" class="flex-2 underline">
+							Create an Account
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

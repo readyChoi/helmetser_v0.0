@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>헬멧써</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/nav.css">
+	
+	<style>
+		#nav_contents > ul {
+            display:inline;
+            list-style-type: none;
+        }  
+        #nav_header_top > img {
+			position:relative;
+			top:5px;
+			left:15px;
+			width:50px;
+			height:50px;
+		}
+		#nav_header_top > a {
+			position:relative;
+			top:-11px;
+			left:25px; 
+			text-decoration:none;
+			font-size:1.4rem;
+			color:rgba(0,0,0,0.60);
+			font-weight:bold;
+		}
+		#nav_header_bottom > span {
+			position:relative;
+			line-height:40px;
+			font-size:1.0rem;
+			color:rgba(0,0,0,0.70);
+			font-weight:bold;
+		}
+		#nav_header_bottom > a {
+			position:relative;
+			left:5px;
+			line-height:40px;
+			text-decoration:none;
+			font-size:.9rem;
+			color:inherit;
+		}
+		#nav_header_bottom > a:hover {
+			text-decoration:underline;
+			color:rgba(0,0,0,0.60);
+			font-weight:bold;
+		}
+        ul#menu {
+            position:relative;
+            top:-12px;            
+        }
+		ul#menu > li {
+			list-style-type : none;
+			position:relative;
+		}
+		
+		label {
+			position:relative;
+			display:block;
+			padding: 0 0 0 3px;
+			line-height:3em;
+			transition: background 0.3s;
+			cursor : pointer;
+		}
+		label:hover {
+			background:rgba(0,0,0,0.05);
+		}
+		label:after {
+			content:"";
+			position:absolute;
+			display:block;
+			top:50%;
+			right:5px;
+			width:0;
+			height:0;
+			border-top:4px solid rgba(0,0,0,.5);
+		  	border-bottom:0 solid rgba(0,0,0,.5);
+		  	border-left:4px solid transparent;
+		  	border-right:4px solid transparent;
+		  	transition:border-bottom .1s, border-top .1s .1s;
+		}
+		
+		label img {
+			position:relative;
+			top:8px;
+			left:10px;
+			width:25px;
+			height:25px;
+		}
+        label span {
+            margin-left:30px;
+            font-size:1.0rem;
+            font-weight:500;
+            color:rgba(0,0,0,.5);
+        }
+		input[type=checkbox]{display:none;}
+		input:checked ~ label:after{
+		    border-top:0 solid rgba(0,0,0,.5);
+		    border-bottom:4px solid rgba(0,0,0,.5);
+		    transition:border-top .1s, border-bottom .1s .1s;
+		}
+		
+		ul.submenu {
+			max-height:0;
+		    padding:0 0 0 0;
+		    overflow:hidden;
+		    list-style-type:none;
+		    transition:max-height 0.3s ease-out;
+		    position:absolute;
+		    min-width:100%;
+		}
+		
+		ul.submenu li a {
+            display:block;
+            padding:10px 12px 10px 58px;
+            margin-top:1px;
+            margin-bottom:1px;
+            color:rgba(0,0,0,.4);
+            text-decoration:none;
+            transition:background .4s;
+            white-space:nowrap;
+            font-size:1.0rem;
+		}
+       
+		ul.submenu li a:hover{
+			background:rgba(0,0,0,0.05);
+			color:inherit;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			var category = '<%=category%>';
+			if(category.startsWith('mat') || category.startsWith('prod')){
+				$("#check01").attr("checked","checked");
+			}
+			else if(category.startsWith('memList')) {
+				$("#check03").attr("checked","checked");
+			}
+			else {
+				$("#check02").attr("checked","checked");
+			}
+			
+	        var window_height = $(window).height();
+	        $("#navigation").css("height", window_height);
+	                        
+	        $(window).resize(function(){
+		        var window_height = $(window).height();
+	            $("#navigation").css("height", window_height);
+	        });
+	        
+	        $("#check01").click(function(){
+	        	$('label').css("transition", "background 0.3s");
+				$('.submenu').css("transition","max-height 0.3s ease-out");
+				if($(this).is(":checked")){
+                    $("#first_menu>.submenu:last-child").css("border-bottom-width", "1.5px");
+                    $("#first_menu>.submenu:last-child").css("border-bottom-style", "solid");
+                    $("#first_menu>.submenu:last-child").css("border-bottom-color", "#EEEEEE");
+                    
+					$('#second_menu').animate({marginTop:"80px"},230);
+					$("#first_menu>.submenu").css("max-height", "70px");
+					$("#first_menu>.submenu").css("padding-bottom", "10px");
+                    
+                    
+				}
+				else {
+					var second = $("#second_menu");
+					$('#second_menu').animate({marginTop:"0px"},230);
+					$("#first_menu>.submenu").css("max-height", "0px");
+                    $("#first_menu>.submenu").css("padding-bottom", "0px");
+    
+                    $("#first_menu>.submenu:last-child").css("border-bottom-width", "0px");
+				}
+			});
+			$("#check02").click(function(){
+				$('label').css("transition", "background 0.3s");
+				$('.submenu').css("transition","max-height 0.3s ease-out");
+				if($(this).is(":checked")){
+                    $("#second_menu>.submenu:last-child").css("border-bottom-width", "1.5px");
+                    $("#second_menu>.submenu:last-child").css("border-bottom-style", "solid");
+                    $("#second_menu>.submenu:last-child").css("border-bottom-color", "#EEEEEE");
+                    
+					$('#third_menu').animate({marginTop:"80px"},230);
+					$("#second_menu>.submenu").css("max-height", "70px");
+					$("#second_menu>.submenu").css("padding-bottom", "10px");
+				}
+				else {					
+					$('#third_menu').animate({marginTop:"0px"},230);
+					$("#second_menu>.submenu").css("max-height", "0px");
+					$("#second_menu>.submenu").css("padding-bottom", "0px");
+
+                    $("#second_menu>.submenu:last-child").css("border-bottom-width", "0px");
+				}
+			});
+			$("#check03").click(function(){
+				$('label').css("transition", "background 0.3s");
+				$('.submenu').css("transition","max-height 0.3s ease-out");
+				if($(this).is(":checked")){
+                    $("#third_menu>.submenu:last-child").css("border-bottom-width", "1.5px");
+                    $("#third_menu>.submenu:last-child").css("border-bottom-style", "solid");
+                    $("#third_menu>.submenu:last-child").css("border-bottom-color", "#EEEEEE");
+                    
+                    $("#third_menu>.submenu").css("max-height", "35px");
+                    $("#third_menu>.submenu").css("padding-bottom", "5px");
+				}
+				else {
+					$("#third_menu>.submenu").css("max-height", "0px");
+					$("#third_menu>.submenu").css("padding-bottom", "0px");
+                    
+                    $("#third_menu>.submenu:last-child").css("border-bottom-width", "0px");
+                    
+				}
+			});
+
+			$('label').css("transition", "none");
+			$('.submenu').css("transition","none");
+			var check01 = $("#check01").is(":checked");
+			var check02 = $("#check02").is(":checked");
+			var check03 = $("#check03").is(":checked");
+			
+			if(check01 == true){
+
+				$('#second_menu').css("margin-top", "80px");
+				$("#first_menu>.submenu").css("max-height", "70px");
+                $("#first_menu>.submenu:last-child").css("border-bottom-width", "1.5px");
+                $("#first_menu>.submenu:last-child").css("border-bottom-style", "solid");
+                $("#first_menu>.submenu:last-child").css("border-bottom-color", "#EEEEEE");
+				$("#first_menu>.submenu").css("padding-bottom", "10px");
+            }
+			else if(check02 == true){
+				$('#third_menu').css("margin-top", "80px");
+				$("#second_menu>.submenu").css("max-height", "70px");
+                $("#second_menu>.submenu").css("padding-bottom", "10px");
+                $("#second_menu>.submenu:last-child").css("border-bottom-width", "1.5px");
+                $("#second_menu>.submenu:last-child").css("border-bottom-style", "solid");
+                $("#second_menu>.submenu:last-child").css("border-bottom-color", "#EEEEEE");
+
+            }
+			else if(check03 == true){
+				$("#third_menu>.submenu").css("max-height", "75px");
+                $("#third_menu>.submenu:last-child").css("border-bottom-width", "1.5px");
+                $("#third_menu>.submenu:last-child").css("border-bottom-style", "solid");
+                $("#third_menu>.submenu:last-child").css("border-bottom-color", "#EEEEEE");
+            }
+		});
+	</script>
+</head>
+<body>
+	<div id="nav_header">
+		<div id="nav_header_top">
+			<img src="/images/logo.png"> <a href="/v3/func/material/list">헬멧써</a>
+		</div>
+		<div id="nav_header_bottom">
+			<span><%=admin_user%>님 환영합니다.</span> <a href="/v3/admin/logout">로그아웃</a>
+		</div>
+	</div>
+</body>
+</html>

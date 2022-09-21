@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>헬멧써</title>
+
+	<style>
+		#header_title {
+            position:inherit;
+            width:150px;
+            height:60px;
+            line-height: 60px;
+            text-align: center;
+        }
+        #header_title > span {
+            font-size:20px;
+            color:#FFFFFF;
+        }
+        #header_search {
+            position:relative;
+            left:150px;
+            height:60px;
+            min-width:500px;
+            line-height: 60px;
+            text-align:right;
+        }
+        #input_keyword {
+            width:400px;
+            height:30px;
+            margin-top:14px;
+            padding-left: 10px;
+            margin-right:25px;
+            font-size:13px;
+            color:rgba(0,0,0,.5);
+            border-width:0;
+            border-radius: 3px;
+        }
+
+        #keyword_submit {
+            position:absolute;
+            top:22px;
+            right:31px;
+            width:16px;
+            height:16px;
+            line-height: 20px;
+            background: url( "/images/search.png" ) no-repeat;
+            border-width: 0;
+            cursor:pointer;
+        }
+	</style>
+	<script>
+		$(document).ready(function(){
+	        var header_width = $(window).width()-300;
+	        var header_search_width = header_width - $("#header_title").width();
+	        
+	        $("#header").css("width", header_width);
+	        $("#header_search").css("width", header_search_width);
+	                        
+	        $(window).resize(function(){
+	            var header_width = $(window).width()-300;
+	            var header_search_width = header_width - $("#header_title").width();
+	        
+	            $("#header").css("width",header_width);
+	            $("#header_search").css("width", header_search_width);
+	        });
+	        
+	        $("#keyword_submit").click(function(){
+	        	$("#keywordForm").submit();
+	        });
+	    });
+	</script>
+	
+</head>
+<body>
+	
+</body>
+</html>
