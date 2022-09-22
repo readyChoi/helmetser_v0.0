@@ -13,7 +13,7 @@ import { classToPlain, plainToClass } from "class-transformer";
 const camelcaseKeysDeep = require('camelcase-keys-deep');
 
 import ResponseVO from '../model/ResponseVO';
-import { Values } from '../routes/values';
+import { Values } from './values';
 import { setResponseData } from '../model/Result';
 import TypeConverUtil from '../util/TypeConvert';
 
@@ -386,6 +386,14 @@ memberRouter.post(member.delete, (req, res) => {
             })
         }
     })
+})
+
+memberRouter.post(member.push, async (req, res, next) => {
+    let b_params = req.body, res_json: any = {};
+    //const { email, pwd, phone, name, token } = b_params;
+    console.log("11111")
+    
+        
 })
 
 

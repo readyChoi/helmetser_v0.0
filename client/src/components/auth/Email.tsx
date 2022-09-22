@@ -129,6 +129,30 @@ const AuthEmail: React.FC<any> = props => {
             }
         })
     }
+
+    const pushB = () => {
+        let url = new URL(SERVER + v_member.member + v_member.push);
+        //let params = { 'email': email ? email.toString().trim() : '', 'action': 'join' }
+        let params;
+        url.search = new URLSearchParams(params).toString();
+
+        axios({
+            method: 'POST',
+            withCredentials: true,
+            url: url.toString(),
+        }).then((res) => {
+            return res.data
+        }).then((data: any) => {
+            console.log(data);
+            if (data.code === Values.SUCCESS_CODE) {
+                enqueueSnackbar(ToastStr.JOIN_FAIL_STR, { variant: "warning", autoHideDuration: SNACKBAR_TIME })
+            } else if (data.code === Values.FAIL_CODE) {
+                // this is success == dont exist same id
+                enqueueSnackbar(ToastStr.EMAIL_AUTH_SUCCESS_STR, { variant: "success", autoHideDuration: SNACKBAR_TIME * 2 })
+                setAuth((prevState) => true);
+            }
+        })
+    }
     
     const movePassword = () => {
         // setMember({ id : email})
@@ -145,8 +169,8 @@ const AuthEmail: React.FC<any> = props => {
     const handleButton = (e: any) => {
         // e.preventDefault();
         
-        if (auth) {
-            movePassword()
+        if (!auth) {
+            pushB()
         } else {
             // setAnimation(true);
             if (email.length  === 0) {
@@ -208,6 +232,10 @@ const AuthEmail: React.FC<any> = props => {
                             <Typography variant="h3">
                                 {auth ? buttonText[1] : buttonText[0]}
                             </Typography>
+                        </Button>
+
+                        <Button
+                            onClick={pushB}>
                         </Button>
 
                     </div>

@@ -5,7 +5,7 @@ import { STATUS_CODES } from "http";
 // path
 const VERSION = '/v0';
 
-export const CLIENT = 'http://3.39.177.242:3000'
+export const CLIENT = 'http://3.38.193.111:3000'
 export const CLIENT_DEV = 'http://localhost:3000'
 
 const MAIN = '/main'
@@ -18,6 +18,7 @@ const AUTH = '/auth'
 const JOIN = '/join'
 const LOGIN = '/login'
 const LOGOUT = '/logout'
+const PUSH = '/push'
 
 
 // object
@@ -58,6 +59,7 @@ export const member = {
     login : LOGIN,
     logout : LOGOUT,
     delete :  DELETE,
+    push: PUSH,
 
     pwd_upd : PWD + UPD,
     token_upd : TOKEN + UPD,
