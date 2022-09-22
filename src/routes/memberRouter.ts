@@ -154,7 +154,7 @@ memberRouter.get(member.auth_app_info, (req, res) => {
         res_json.msg = "Query Type Error!"
         return res.json(res_json)
     }
-
+    console.log(query.email)
     memberDao.selectEmailAuthAppInfo(query.email).then((result: any) => {
         if (result.length != 0) {
             res_json = setResponseData(res_json, Values.SUCCESS_CODE, Values.SUCCESS_MESSAGE)

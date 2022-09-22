@@ -109,7 +109,7 @@ const AuthEmail: React.FC<any> = props => {
 
     const getAuth = () => {
         let url = new URL(SERVER + v_member.member + v_member.auth_app_info);
-        let params = { 'email': email ? email.toString().trim() : '', 'action': 'join' }
+        let params = { 'email': email}
         url.search = new URLSearchParams(params).toString();
 
         axios({
@@ -133,16 +133,6 @@ const AuthEmail: React.FC<any> = props => {
         setShowPassword((prevState) => !prevState);
     };
 
-    const getAuth2 = () => {
-
-        if (email.toString() == 'abcd') {
-            setAuth2((prevState) => true)
-        }
-        else {
-            enqueueSnackbar(ToastStr.JOIN_FAIL_STR, { variant: "warning", autoHideDuration: SNACKBAR_TIME })
-        }
-
-    }
 
 
     const valueChangeHandler2 = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -157,23 +147,12 @@ const AuthEmail: React.FC<any> = props => {
             else setCheck((prevState) => false)
         }
     }
-    const movePassword = () => {
-        // setMember({ id : email})
-        history.push({
-            pathname: '/password',
-            // search: '?update=true',  // query string
-            state: {  // location state
-                email: email,
-            },
-        });
-    }
 
 
     const handleButton = (e: any) => {
         // e.preventDefault();
-        if (email.toString() == 'abcd') {
+        if (auth) {
             enqueueSnackbar(ToastStr.EMAIL_ADDR_CHECK_SUC, { variant: "success", autoHideDuration: SNACKBAR_TIME })
-            setAuth2((prevState) => true)
         } else {
             // setAnimation(true);
             if (email.length === 0) {
@@ -182,11 +161,9 @@ const AuthEmail: React.FC<any> = props => {
                 enqueueSnackbar(ToastStr.EMAIL_ADDR_CHECK_LEN, { variant: "warning", autoHideDuration: SNACKBAR_TIME })
             }
             else {
-                enqueueSnackbar(ToastStr.JOIN_FAIL_STR, { variant: "warning", autoHideDuration: SNACKBAR_TIME })
+                getAuth()
             }
-            setAuth2((prevState) => false)
         }
-
     };
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -194,7 +171,7 @@ const AuthEmail: React.FC<any> = props => {
     };
 
     const handleClick = (e: any) => {
-        if (!auth2) {
+        if (!auth) {
             enqueueSnackbar(ToastStr.EMAIL_AUTH_CHECK_STR, { variant: "warning", autoHideDuration: SNACKBAR_TIME })
             return;
         }
@@ -311,7 +288,6 @@ const AuthEmail: React.FC<any> = props => {
                                 {password === '' ? buttonText2[0] : check ? buttonText2[2] : buttonText2[1]}
                             </Typography>
                         </Button>
-
 
                     </div>
                 </div>

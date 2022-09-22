@@ -35,9 +35,9 @@ export default class MemberDao {
     })
 
     selectEmailAuthAppInfo = (email: String, conn?: any) => new Promise((resolve, reject) => {
-        let sql = "SELECT member_email\
+        let sql = "SELECT member_id\
                     FROM member\
-                    WHERE member_email = ?"
+                    WHERE member_id = ?"
         database.query(sql, [email], conn).then(
             (result: any) => {
                 resolve(result)
