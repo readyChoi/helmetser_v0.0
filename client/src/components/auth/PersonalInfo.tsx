@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '27px',
         boxShadow: '6px 3px 6px 0 rgba(0, 0, 0, 0.16)',
         border: 'solid 0.5px #cfd4d9',
-        backgroundColor: `${COLORS.WATER_BLUE}`,
+        backgroundColor: 'red',
         color: `${COLORS.WATER_BLUE}`,
         textColor: '#ffffff',
     },
@@ -151,11 +151,8 @@ const PersonalInfo: React.FC<any> = props => {
                 <CssBaseline />
                 <div className={classes.paper}>
                     <div className={classes.title}>
-                        <Typography variant="h6" style={{ color: `${COLORS.WATER_BLUE}` }}>
-                            해커톤 프로젝트에
-                        </Typography>
-                        <Typography variant="h6" style={{ color: `${COLORS.WATER_BLUE}` }}>
-                            오신 것을 환영합니다!
+                        <Typography variant="h6" style={{ color: 'red' }}>
+                            HELMETSER
                         </Typography>
                     </div>
 
@@ -166,12 +163,12 @@ const PersonalInfo: React.FC<any> = props => {
                             required
                             fullWidth
                             id="name"
-                            label="이름을 입력하세요."
+                            label="은행명"
                             name="name"
                             autoComplete="name"
                             autoFocus
-                            InputProps={{style: {fontSize: '4vw'}}}
-                            InputLabelProps={{style: {fontSize: '3vw'}}}
+                            InputProps={{ style: { fontSize: '4vw' } }}
+                            InputLabelProps={{ style: { fontSize: '3vw' } }}
                             value={name}
                             onChange={valueChangeHandler}
                             style={{ color: `${COLORS.charcoal_grey}` }}
@@ -182,11 +179,11 @@ const PersonalInfo: React.FC<any> = props => {
                             required
                             fullWidth
                             name="phone"
-                            label="휴대폰 번호를 입력하세요. (ex 01012341234)"
+                            label="계좌번호"
                             id="phone"
                             autoComplete="phone"
-                            InputProps={{style: {fontSize: '4vw'}}}
-                            InputLabelProps={{style: {fontSize: '3vw'}}}
+                            InputProps={{ style: { fontSize: '4vw' } }}
+                            InputLabelProps={{ style: { fontSize: '3vw' } }}
                             value={phone}
                             onChange={valueChangeHandler}
                             style={{ color: `${COLORS.charcoal_grey}` }}
@@ -199,7 +196,7 @@ const PersonalInfo: React.FC<any> = props => {
                             onClick={handleButton}
                         >
                             <Typography variant="h3">
-                                플레이 스타트업 시작하기
+                                다음으로
                             </Typography>
                         </Button>
                     </div>

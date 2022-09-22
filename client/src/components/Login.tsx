@@ -16,7 +16,7 @@ import { useSnackbar } from 'notistack';
 const SERVER = basic.server;
 
 
-const useStyles = makeStyles((theme : any) => ({
+const useStyles = makeStyles((theme: any) => ({
 
   background: {
     position: 'absolute',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme : any) => ({
   },
   title: {
     width: '80%',
-    alignItems: 'left'
+    alignItems: 'center'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -55,14 +55,14 @@ const useStyles = makeStyles((theme : any) => ({
     borderRadius: '27px',
     boxShadow: '6px 3px 6px 0 rgba(0, 0, 0, 0.16)',
     border: 'solid 0.5px #cfd4d9',
-    backgroundColor: `${COLORS.WATER_BLUE}`,
+    backgroundColor: 'red',
     "&:hover": {
-      backgroundColor:`${COLORS.WATER_BLUE}`,
+      backgroundColor: 'black',
     }
   },
   submitButton: {
     "& :hover": {
-      backgroundColor:`${COLORS.WATER_BLUE}`,
+      backgroundColor: 'red',
     }
   },
   logoSection: {
@@ -147,7 +147,7 @@ const LoginIn: React.FC<any> = props => {
       }).then((data: any) => {
         // console.log('data?', data)
         if (data.code === Values.FAIL_CODE) {
-          enqueueSnackbar(ToastStr.LOGIN_FAIL, { variant: "error", autoHideDuration: SNACKBAR_TIME})
+          enqueueSnackbar(ToastStr.LOGIN_FAIL, { variant: "error", autoHideDuration: SNACKBAR_TIME })
         } else {
           //setCookie('access', data.jwt)
           axios.defaults.headers.common['Authorization'] = `Bearer ${data.jwt}`;
@@ -160,13 +160,13 @@ const LoginIn: React.FC<any> = props => {
           }
           // window.postMessage(data.member.id, '*')
         }
-      }).catch((error:any) => {
+      }).catch((error: any) => {
         if (error.response) {
-          console.log('error?',error.response)
+          console.log('error?', error.response)
           if (error.response.status === 400) {
-            enqueueSnackbar(ToastStr.LOGIN_FAIL, { variant: "error", autoHideDuration: SNACKBAR_TIME})
+            enqueueSnackbar(ToastStr.LOGIN_FAIL, { variant: "error", autoHideDuration: SNACKBAR_TIME })
           } else if (error.response.status === 401) {
-            enqueueSnackbar(ToastStr.PWD_CHECK_FALSE_STR, { variant: "error", autoHideDuration: SNACKBAR_TIME})
+            enqueueSnackbar(ToastStr.PWD_CHECK_FALSE_STR, { variant: "error", autoHideDuration: SNACKBAR_TIME })
           }
         }
       })
@@ -182,11 +182,8 @@ const LoginIn: React.FC<any> = props => {
         <CssBaseline />
         <div className={classes.paper}>
           <div className={classes.title}>
-            <Typography variant="h6" style={{ color: `${COLORS.WATER_BLUE}` }}>
-              해커톤 프로젝트에
-            </Typography>
-            <Typography variant="h6" style={{ color: `${COLORS.WATER_BLUE}` }}>
-              오신 것을 환영합니다!
+            <Typography variant="h6" style={{ color: 'red' }}>
+              HELMETSER
             </Typography>
           </div>
 
@@ -233,7 +230,7 @@ const LoginIn: React.FC<any> = props => {
             <Grid container justify="center">
               <Grid item>
                 <Button onClick={moveEmail}>
-                  <Typography variant="h2" style={{ color: `${COLORS.DOWN}` }}>
+                  <Typography variant="h2" style={{ color: 'black' }}>
                     회원가입하기
                   </Typography>
                 </Button>
