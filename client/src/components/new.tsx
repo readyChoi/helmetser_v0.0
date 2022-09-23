@@ -2,13 +2,9 @@ import { Button, Container, CssBaseline, makeStyles, TextField, Typography, Inpu
 import { useHistory } from "react-router-dom";
 import { member as basic, SNACKBAR_TIME } from '../request/values';
 
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useSnackbar } from 'notistack';
-import ToastStr from '../request/toastStr';
 import { COLORS } from './Theme'
-
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -62,45 +58,30 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+const { kakao } = window;
+
 const AuthPassword: React.FC<any> = props => {
     const classes = useStyles();
     let history = useHistory()
 
-    // const {member, setMember} = props
-    const [password, setPassword] = useState<string>('');
-    const [passwordRe, setPasswordRe] = useState<string>('');
-    const [check, setCheck] = useState<boolean>(false);
-    const [showPassword, setShowPassword] = useState<boolean>(false);
-
-
-    const buttonText = ['비밀번호를 입력해주세요.', '비밀번호를 확인해주세요', '확인']
 
     const { enqueueSnackbar } = useSnackbar();
     const { member } = props;
+    useEffect(() => {
+        const container = document.getElementById('myMap');
+		const options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+        const map = new kakao.maps.Map(container, options);
+    }, []);
+
     return (
-        <div className={classes.background}>
-            <Container component="main" className={classes.container}>
-                <CssBaseline />
-                <div className={classes.paper}>
-                    <div className={classes.title}>
-                        <Typography variant="h6" >
-                            해커톤 프로젝트에
-                        </Typography>
-                        <Typography variant="h6" >
-                            오신 것을 환영합니다!
-                        </Typography>
-                    </div>
-
-                    <div className={classes.form}>
-                        <Typography>{member.id}</Typography>
-    
-
-                    </div>
-                </div>
-            </Container>
-        </div>
-
-    )
+        <div id='myMap' style={{
+            width: '100vw', 
+            height: '100vh'
+        }}></div>
+    );
 }
 
 export default AuthPassword;

@@ -1,8 +1,7 @@
 
-knucse.pem
+*.pem
 /node_modules
 /dist
 
 /src/config/awsConfig.ts
-helmetser.pem
 .DS_Store
