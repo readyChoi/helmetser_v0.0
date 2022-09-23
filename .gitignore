@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
 node_modules
 dist
 knucse.pem
+=======
+/node_modules
+/dist
+
+/src/config/
+>>>>>>> Stashed changes

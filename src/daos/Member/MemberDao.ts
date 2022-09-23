@@ -60,12 +60,10 @@ export default class MemberDao {
     // })
 
     selectMember = (email: string, conn?:any) => new Promise((resolve, reject) => {
-        let sql = "SELECT m.member_email, m.member_name, m.member_password, m.member_phone, \
-                            m.join_date, m.token, m.class_code, m.grade, \
-                            c.company_num, c.company_name\
-                    FROM member m LEFT JOIN company c\
-                            ON m.company_num = c.company_num\
-                    WHERE member_email = ?";
+        let sql = "SELECT m.member_id, m.name, m.phone, \
+                            m.reg_date, m.token, m.password \
+                    FROM member m \
+                    WHERE member_id = ?";
         database.query(sql, [email], conn).then(
             (result: any) => {
                 resolve(result[0])
@@ -91,8 +89,8 @@ export default class MemberDao {
         console.log('in insertMember', email, pwd, name, phone, tok)
 
         let sql = 'INSERT INTO member \
-        (member_email, member_password, member_name, member_phone, join_date, token)\
-        VALUES (?, ?, ?, ?, NOW(), ?);'
+        (member_id, status, reg_date, point, membership_code, password, name, phone, token)\
+        VALUES (?, 0, NOW(), 0, 0, ?, ?, ?, ?);'
 
         database.query(sql, [email, pwd, name, phone, tok], conn).then((result: any) => {
             if (result.affectedRows == 0) throw { code: 'insertMember', msg: 'Insert Member Error!' }

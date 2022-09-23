@@ -62,7 +62,6 @@ memberRouter.post(member.login, async (req, res, next) => {
             error: 'paramMissingError',
         });
     }
-
     database.getConnection((err: any, conn: any) => {
         if (err) {
             res_json = setResponseData(res_json, Values.FAIL_CODE, Values.FAIL_MESSAGE);
@@ -74,6 +73,7 @@ memberRouter.post(member.login, async (req, res, next) => {
                     if (result) {
                         result = camelcaseKeysDeep(result)
                         let member = plainToClass(Member, result as Member)
+                        console.log(member)
                         if (!member.authenticate(password)) {
                             console.log('is not authenticate by pw')
                             return res.status(UNAUTHORIZED).json({
@@ -82,10 +82,7 @@ memberRouter.post(member.login, async (req, res, next) => {
                         } else {
                             console.log('member authenticate')
 
-                            console.log('token check', member.getToken(), token)
-                            if (member.getToken() !== token) {
-                                await memberDao.updateToken(email, token, conn);
-                            }
+
                             let obj = {
                                 id: member.getMemberEmail(),
                                 type: 'member',
@@ -180,7 +177,7 @@ memberRouter.post(member.join, async (req, res, next) => {
     await member.setMemberEmail(email)
         .setMemberName(name)
         .setMemberPhone(phone)
-        .setMemberPassword(pwd)
+        .setPassword(pwd)
     console.log(member);
 
     database.getConnection((err: any, conn: any) => {
@@ -191,7 +188,7 @@ memberRouter.post(member.join, async (req, res, next) => {
         } else {
             conn.beginTransaction((err) => {
                 memberDao.insertMember(
-                    member.getMemberEmail(), member.getMemberPassword(),
+                    member.getMemberEmail(), member.getPassword(),
                     member.getMemberName(), member.getMemberPhone(), tok, conn = conn)
                     .then(async (result: any) => {
                         if ( token != null  && token.length != 0) {

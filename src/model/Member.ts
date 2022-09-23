@@ -20,7 +20,7 @@ interface member_json {
 export default class Member {
     private memberNum!: number;
 	private memberEmail!: string;
-	private memberPassword!: string;
+	private password!: string;
 	private memberName!: string;
 	private memberPhone!: string;
 	private joinDate!: string;
@@ -42,7 +42,7 @@ export default class Member {
     }
 
     public authenticate(password:string) {
-        return bcrypt.compareSync(password, this.memberPassword)
+        return bcrypt.compareSync(password, this.password)
     }
 
     public getMemberNum(): number {
@@ -63,18 +63,18 @@ export default class Member {
         return this;
     }
 
-    public getMemberPassword(): string {
-        return this.memberPassword;
+    public getPassword(): string {
+        return this.password;
     }
 
-    public async setMemberPassword(memberPassword: string): Promise<Member> {
-        let mPwd = this.memberPassword
+    public async setPassword(password: string): Promise<Member> {
+        let mPwd = this.password
         let m = this;
 
         console.log('in setMemberPwd this?', m)
-        await bcrypt.hash(memberPassword, 10).then((hash) => {
+        await bcrypt.hash(password, 10).then((hash) => {
             console.log('bcrypt hash?', hash)
-            m.memberPassword = hash;
+            m.password = hash;
         })
 
         console.log('after this?', m)

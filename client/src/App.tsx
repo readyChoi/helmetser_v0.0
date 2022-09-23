@@ -16,6 +16,7 @@ import Login from './components/Login'
 import AuthEmail from './components/auth/Email'
 import AuthPassword from './components/auth/Password'
 import PersonalInfo from './components/auth/PersonalInfo'
+import New from './components/new'
 
 
 const useStyles = makeStyles({
@@ -91,6 +92,7 @@ function App(props:any) {
               <Route path="/email" component={() => <AuthEmail member={member} setMember={setMember} />}></Route>
               <Route path="/password" component={() => <AuthPassword member={member} setMember={setMember} />}></Route>
               <Route path="/personalInfo" component={() => <PersonalInfo member={member} setMember={setMember} token={token}/>}></Route>
+              <Route path="/new" component={() => <New member={member} setMember={setMember} token={token}/>}></Route>
             </Switch>
           </BrowserRouter>
         </div>

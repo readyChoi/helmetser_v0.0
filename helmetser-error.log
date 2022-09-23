@@ -1,0 +1,70 @@
+Warning: connect.session() MemoryStore is not
+designed for a production environment, as it will leak
+memory, and will not scale past a single process.
+Error: EACCES: permission denied, open 'jet-logger.log'
+    at Object.openSync (fs.js:498:3)
+    at Object.writeFileSync (fs.js:1529:35)
+    at Object.appendFileSync (fs.js:1568:6)
+    at Function.Logger.WriteToFile (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:252:30)
+    at Function.Logger.PrintLog (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:233:20)
+    at Logger.printLogHelper (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:195:16)
+    at Logger.info (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:183:14)
+    at Server.<anonymous> (/home/ubuntu/2022_knucse_hackathon/dist/index.js:16:22)
+    at Object.onceWrapper (events.js:519:28)
+    at Server.emit (events.js:400:28) {
+  errno: -13,
+  syscall: 'open',
+  code: 'EACCES',
+  path: 'jet-logger.log'
+}
+Error: EACCES: permission denied, open 'jet-logger.log'
+    at Object.openSync (fs.js:498:3)
+    at Object.writeFileSync (fs.js:1529:35)
+    at Object.appendFileSync (fs.js:1568:6)
+    at Function.Logger.WriteToFile (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:252:30)
+    at Function.Logger.PrintLog (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:233:20)
+    at Logger.printLogHelper (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:195:16)
+    at Logger.info (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:183:14)
+    at Server.<anonymous> (/home/ubuntu/2022_knucse_hackathon/dist/index.js:17:22)
+    at Object.onceWrapper (events.js:519:28)
+    at Server.emit (events.js:400:28) {
+  errno: -13,
+  syscall: 'open',
+  code: 'EACCES',
+  path: 'jet-logger.log'
+}
+Warning: connect.session() MemoryStore is not
+designed for a production environment, as it will leak
+memory, and will not scale past a single process.
+Error: EACCES: permission denied, open 'jet-logger.log'
+    at Object.openSync (fs.js:498:3)
+    at Object.writeFileSync (fs.js:1529:35)
+    at Object.appendFileSync (fs.js:1568:6)
+    at Function.Logger.WriteToFile (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:252:30)
+    at Function.Logger.PrintLog (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:233:20)
+    at Logger.printLogHelper (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:195:16)
+    at Logger.info (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:183:14)
+    at Server.<anonymous> (/home/ubuntu/2022_knucse_hackathon/dist/index.js:16:22)
+    at Object.onceWrapper (events.js:519:28)
+    at Server.emit (events.js:400:28) {
+  errno: -13,
+  syscall: 'open',
+  code: 'EACCES',
+  path: 'jet-logger.log'
+}
+Error: EACCES: permission denied, open 'jet-logger.log'
+    at Object.openSync (fs.js:498:3)
+    at Object.writeFileSync (fs.js:1529:35)
+    at Object.appendFileSync (fs.js:1568:6)
+    at Function.Logger.WriteToFile (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:252:30)
+    at Function.Logger.PrintLog (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:233:20)
+    at Logger.printLogHelper (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:195:16)
+    at Logger.info (/home/ubuntu/2022_knucse_hackathon/node_modules/jet-logger/lib/Logger.js:183:14)
+    at Server.<anonymous> (/home/ubuntu/2022_knucse_hackathon/dist/index.js:17:22)
+    at Object.onceWrapper (events.js:519:28)
+    at Server.emit (events.js:400:28) {
+  errno: -13,
+  syscall: 'open',
+  code: 'EACCES',
+  path: 'jet-logger.log'
+}

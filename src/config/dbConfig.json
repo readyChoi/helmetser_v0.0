@@ -1,6 +1,13 @@
 {
+<<<<<<< Updated upstream
     "host" : "playstartupdbinstance.c3tnx6bwgb1m.ap-northeast-2.rds.amazonaws.com",
     "user" : "developer",
     "password" : "Together1!",
     "database" : "playstartup"
+=======
+    "host" : "13.125.211.144",
+    "user" : "ROOT",
+    "password" : "KNUCSE2022",
+    "database" : "HELMETSER"
+>>>>>>> Stashed changes
 }

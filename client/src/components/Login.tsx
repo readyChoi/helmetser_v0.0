@@ -100,24 +100,11 @@ const LoginIn: React.FC<any> = props => {
   const handleLogin = (member: any) => {
 
     console.log('in Login handleLogin', member)
+
     if (member) {
-      if (member.classCode === null || member.classCode.length === 0) {
         history.push({
-          pathname: '/ClassEnter',
+          pathname: '/new',
         });
-      } else if (member.companyNum === -1) {
-        history.push({
-          pathname: '/CompanyAppStandBy',
-        });
-      } else if (member.companyNum === 0 || member.companyNum === null) {
-        history.push({
-          pathname: '/CompanyAction',
-        });
-      } else {
-        history.push({
-          pathname: '/CompanyInfo',
-        });
-      }
     }
   }
 

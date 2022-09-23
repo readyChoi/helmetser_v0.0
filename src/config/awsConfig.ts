@@ -1,6 +1,6 @@
-const ACCESSKEY = "AKIAI3NEIJMPYYGSPPVQ";
-const SECRET_ACCESSKEY = "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";
-const BUCKET = "pstartup-bucket";
+const ACCESSKEY = "AKIA4CVMPBHQEFX2PTNX";
+const SECRET_ACCESSKEY = "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";
+const BUCKET = "helmetser";
 const REGION = "ap-northeast-2";
 
 const BASE_DIR = "hackathon_v0"
