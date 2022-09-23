@@ -5,6 +5,7 @@ import { member as basic, SNACKBAR_TIME } from '../request/values';
 import React, { useEffect } from "react";
 import { useSnackbar } from 'notistack';
 import { COLORS } from './Theme'
+import { ClientRequest } from "http";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -56,7 +57,11 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-
+declare global{
+    interface Window{
+        kakao: any;
+    }
+}
 
 const { kakao } = window;
 
@@ -67,13 +72,30 @@ const AuthPassword: React.FC<any> = props => {
 
     const { enqueueSnackbar } = useSnackbar();
     const { member } = props;
+    const mapScript = document.createElement("script");
+    mapScript.async = true;
+    mapScript.src = '//dapi.kakao.com/v2/maps/sdk.js?appkey=09a2bf6aef7641e6ca9ed7991df1bf89&autoload=false&Libraries=services,clusterer,drawing';
+
     useEffect(() => {
+ 
         const container = document.getElementById('myMap');
-		const options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
+        let options = {
+            center: new kakao.maps.LatLng(35.8881679003687, 128.61134827189184 ),
+            level: 4
+        };
         const map = new kakao.maps.Map(container, options);
+        if (navigator.geolocation) {
+            // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const lat = position.coords.latitude; // 위도
+                const lon = position.coords.longitude; // 경도
+                let locPosition = new kakao.maps.LatLng(lat, lon);
+                map.panTo(locPosition);
+            });
+        } else {
+
+        }
+           
     }, []);
 
     return (

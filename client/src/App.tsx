@@ -32,6 +32,12 @@ const useStyles = makeStyles({
   }
 });
 
+declare global{
+  interface Window{
+      kakao: any;
+  }
+}
+
 export interface iMember {
   email: string | null,
   classCode: string | null,
