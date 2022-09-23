@@ -5,7 +5,7 @@ import { STATUS_CODES } from "http";
 // path
 const VERSION = '/v0';
 
-export const CLIENT = 'http://3.39.177.242:3000'
+export const CLIENT = 'http://13.125.211.144:3000'
 export const CLIENT_DEV = 'http://localhost:3000'
 
 const MAIN = '/main'
