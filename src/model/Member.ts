@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs'
 
 interface member_json {
-    member_email: String,
+    member_Id: String,
     member_password: String,
     member_name: String,
     member_phone: String,
@@ -19,11 +19,11 @@ interface member_json {
 
 export default class Member {
     private memberNum!: number;
-	private memberEmail!: string;
+	private memberId!: string;
 	private password!: string;
-	private memberName!: string;
-	private memberPhone!: string;
-	private joinDate!: string;
+	private name!: string;
+	private phone!: string;
+	private regDate!: string;
 	private latestConnectDate!: string;
 	private grade!: string;
 	private token!: string;
@@ -54,12 +54,12 @@ export default class Member {
         return this;
     }
 
-    public getMemberEmail(): string {
-        return this.memberEmail;
+    public getMemberId(): string {
+        return this.memberId;
     }
 
-    public setMemberEmail(memberEmail: string): Member {
-        this.memberEmail = memberEmail;
+    public setMemberId(memberId: string): Member {
+        this.memberId = memberId;
         return this;
     }
 
@@ -81,30 +81,30 @@ export default class Member {
         return m;
     }
 
-    public getMemberName(): string {
-        return this.memberName;
+    public getName(): string {
+        return this.name;
     }
 
-    public setMemberName(memberName: string): Member {
-        this.memberName = memberName;
+    public setName(name: string): Member {
+        this.name = name;
         return this;
     }
 
-    public getMemberPhone(): string {
-        return this.memberPhone;
+    public getPhone(): string {
+        return this.phone;
     }
 
-    public setMemberPhone(memberPhone: string): Member {
-        this.memberPhone = memberPhone;
+    public setPhone(phone: string): Member {
+        this.phone = phone;
         return this;
     }
 
-    public getJoinDate(): string {
-        return this.joinDate;
+    public getRegDate(): string {
+        return this.regDate;
     }
 
-    public setJoinDate(joinDate: string): Member {
-        this.joinDate = joinDate;
+    public setRegDate(regDate: string): Member {
+        this.regDate = regDate;
         return this;
     }
 
@@ -203,11 +203,11 @@ export default class Member {
 
     // constructor(json: member_json) {
     //     // this.memberNum;
-    //     // this.memberEmail = json.member_email;
+    //     // this.memberId = json.member_Id;
     //     // this.memberPassword = json.member_password;
-    //     // this.memberName = json.member_name;
+    //     // this.name = json.member_name;
     //     // this.memberPhone = json.member_phone;
-    //     // this.joinDate;
+    //     // this.regDate;
     //     // this.latestConnectDate;
     //     // this.grade = json.member_grade;
     //     // this.token;

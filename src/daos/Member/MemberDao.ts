@@ -14,7 +14,7 @@ export default class MemberDao {
     insertAuthApplication = (member: Member, conn?: any) => new Promise((resolve, reject) => {
         let sql = "INSERT INTO authentication VALUES (?, NOW());"
 
-        database.query(sql, [member.getMemberEmail()], conn).then((result: any) => {
+        database.query(sql, [member.getMemberId()], conn).then((result: any) => {
             if (result.affectedRows == 0) throw { code: 'insertAuthApplication', msg: 'Insert Auth App Error!' }
             resolve(result)
         })
@@ -35,9 +35,9 @@ export default class MemberDao {
     })
 
     selectEmailAuthAppInfo = (email: String, conn?: any) => new Promise((resolve, reject) => {
-        let sql = "SELECT member_email\
+        let sql = "SELECT member_id\
                     FROM member\
-                    WHERE member_email = ?"
+                    WHERE member_id = ?"
         database.query(sql, [email], conn).then(
             (result: any) => {
                 resolve(result)
@@ -60,9 +60,8 @@ export default class MemberDao {
     // })
 
     selectMember = (email: string, conn?:any) => new Promise((resolve, reject) => {
-        let sql = "SELECT m.member_id, m.name, m.phone, \
-                            m.reg_date, m.token, m.password \
-                    FROM member m \
+        let sql = "SELECT member_id, name, password, phone, reg_date \
+                    FROM member\
                     WHERE member_id = ?";
         database.query(sql, [email], conn).then(
             (result: any) => {

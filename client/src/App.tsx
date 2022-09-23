@@ -92,7 +92,7 @@ function App(props:any) {
               <Route path="/email" component={() => <AuthEmail member={member} setMember={setMember} />}></Route>
               <Route path="/password" component={() => <AuthPassword member={member} setMember={setMember} />}></Route>
               <Route path="/personalInfo" component={() => <PersonalInfo member={member} setMember={setMember} token={token}/>}></Route>
-              <Route path="/new" component={() => <New member={member} setMember={setMember} token={token}/>}></Route>
+              <Route path="/new" component={() => <New member={member}/>}></Route>
             </Switch>
           </BrowserRouter>
         </div>

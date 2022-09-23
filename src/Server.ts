@@ -102,6 +102,7 @@ passportConfig(app, passport);
 
 app.all('/*', function (req, res, next) {
     console.log(req.url, req.method)
+
     // res.header("Access-Control-Allow-Origin", "http://59.23.138.171:3000");
     if (process.env.NODE_ENV === 'production') {
         res.header("Access-Control-Allow-Origin", CLIENT);
@@ -124,7 +125,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add APIs
 // app.use('/api', BaseRouter);
-app.use('/v3', BaseRouter);
+app.use('/v0', BaseRouter);
 
 // Print API errors
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

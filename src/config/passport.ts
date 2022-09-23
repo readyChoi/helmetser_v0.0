@@ -50,9 +50,9 @@ const config = (app, passport) => {
                 } else {
                     console.log('in passport, member authenticate')
                     let obj = {
-                        id: member.getMemberEmail(),
+                        id: member.getMemberId(),
                         type: 'member',
-                        name: member.getMemberName(),
+                        name: member.getName(),
                         class_code: member.getClassCode(),
                         company_num: member.getCompanyNum(),
                     }

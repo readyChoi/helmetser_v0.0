@@ -13,7 +13,7 @@ import { classToPlain, plainToClass } from "class-transformer";
 const camelcaseKeysDeep = require('camelcase-keys-deep');
 
 import ResponseVO from '../model/ResponseVO';
-import { Values } from '../routes/values';
+import { Values } from './values';
 import { setResponseData } from '../model/Result';
 import TypeConverUtil from '../util/TypeConvert';
 
@@ -62,6 +62,7 @@ memberRouter.post(member.login, async (req, res, next) => {
             error: 'paramMissingError',
         });
     }
+
     database.getConnection((err: any, conn: any) => {
         if (err) {
             res_json = setResponseData(res_json, Values.FAIL_CODE, Values.FAIL_MESSAGE);
@@ -73,7 +74,6 @@ memberRouter.post(member.login, async (req, res, next) => {
                     if (result) {
                         result = camelcaseKeysDeep(result)
                         let member = plainToClass(Member, result as Member)
-                        console.log(member)
                         if (!member.authenticate(password)) {
                             console.log('is not authenticate by pw')
                             return res.status(UNAUTHORIZED).json({
@@ -82,11 +82,10 @@ memberRouter.post(member.login, async (req, res, next) => {
                         } else {
                             console.log('member authenticate')
 
-
                             let obj = {
-                                id: member.getMemberEmail(),
+                                id: member.getMemberId(),
                                 type: 'member',
-                                name: member.getMemberName(),
+                                name: member.getName(),
                                 classCode: member.getClassCode(),
                                 companyNum: member.getCompanyNum(),
                             }
@@ -151,7 +150,7 @@ memberRouter.get(member.auth_app_info, (req, res) => {
         res_json.msg = "Query Type Error!"
         return res.json(res_json)
     }
-
+    console.log(query.email)
     memberDao.selectEmailAuthAppInfo(query.email).then((result: any) => {
         if (result.length != 0) {
             res_json = setResponseData(res_json, Values.SUCCESS_CODE, Values.SUCCESS_MESSAGE)
@@ -174,9 +173,9 @@ memberRouter.post(member.join, async (req, res, next) => {
     let tok = token ? '' : token;
 
     let member = new Member();
-    await member.setMemberEmail(email)
-        .setMemberName(name)
-        .setMemberPhone(phone)
+    await member.setMemberId(email)
+        .setName(name)
+        .setPhone(phone)
         .setPassword(pwd)
     console.log(member);
 
@@ -188,16 +187,13 @@ memberRouter.post(member.join, async (req, res, next) => {
         } else {
             conn.beginTransaction((err) => {
                 memberDao.insertMember(
-                    member.getMemberEmail(), member.getPassword(),
-                    member.getMemberName(), member.getMemberPhone(), tok, conn = conn)
+                    member.getMemberId(), member.getPassword(),
+                    member.getName(), member.getPhone(), tok, conn = conn)
                     .then(async (result: any) => {
-                        if ( token != null  && token.length != 0) {
-                            await memberDao.updateToken(email, token, conn);
-                        }
                         let obj = {
-                            id: member.getMemberEmail(),
+                            id: member.getMemberId(),
                             type: 'member',
-                            name: member.getMemberName(),
+                            name: member.getMemberId(),
                             classCode: '0',
                             companyNum: 0,
                         }

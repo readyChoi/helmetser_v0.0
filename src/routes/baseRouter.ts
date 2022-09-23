@@ -1,5 +1,7 @@
 import { Router, NextFunction, Request, Response } from 'express';
+import memberRouter from './memberRouter'
 
+import { memberCheckMW} from './middlewares';
 import UtilDao from '../daos/Util/UtilDao'
 import { Values, util } from './values';
 import { setResponseData } from '../model/Result';
@@ -73,5 +75,5 @@ baseRouter.get(util.displayFile, async (req, res) => {
         })
     }
 })
-
+baseRouter.use('/member', memberCheckMW, memberRouter)
 export default baseRouter;

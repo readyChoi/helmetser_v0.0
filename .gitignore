@@ -3,5 +3,6 @@ knucse.pem
 /node_modules
 /dist
 
-/src/config/
+/src/config/awsConfig.ts
 helmetser.pem
+.DS_Store
