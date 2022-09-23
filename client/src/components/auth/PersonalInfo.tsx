@@ -166,11 +166,7 @@ const PersonalInfo: React.FC<any> = props => {
                             required
                             fullWidth
                             id="name"
-<<<<<<< Updated upstream
                             label="이름을 입력하세요."
-=======
-                            label="이름"
->>>>>>> Stashed changes
                             name="name"
                             autoComplete="name"
                             autoFocus
@@ -186,11 +182,7 @@ const PersonalInfo: React.FC<any> = props => {
                             required
                             fullWidth
                             name="phone"
-<<<<<<< Updated upstream
                             label="휴대폰 번호를 입력하세요. (ex 01012341234)"
-=======
-                            label="전화번호"
->>>>>>> Stashed changes
                             id="phone"
                             autoComplete="phone"
                             InputProps={{style: {fontSize: '4vw'}}}
@@ -207,11 +199,7 @@ const PersonalInfo: React.FC<any> = props => {
                             onClick={handleButton}
                         >
                             <Typography variant="h3">
-<<<<<<< Updated upstream
-                                플레이 스타트업 시작하기
-=======
                                 회원가입
->>>>>>> Stashed changes
                             </Typography>
                         </Button>
                     </div>
