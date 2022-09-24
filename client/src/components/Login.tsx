@@ -3,6 +3,7 @@ import { Button, CssBaseline, TextField, Grid, Typography } from '@material-ui/c
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useHistory } from "react-router-dom";
+import { useCookies } from "react-cookie";
 //import LongPressable from 'react-longpressable';
 import ToastStr from '../request/toastStr';
 
@@ -94,6 +95,7 @@ const LoginIn: React.FC<any> = props => {
   const [member_email, setEmail] = useState<any | null>();
   const [member_password, setPassword] = useState<any | null>();
   const history = useHistory();
+  const [cookies, setCookie, removeCookie] = useCookies();
   const { enqueueSnackbar } = useSnackbar();
   const { setMember, token } = props;
 
@@ -101,23 +103,9 @@ const LoginIn: React.FC<any> = props => {
 
     console.log('in Login handleLogin', member)
     if (member) {
-      if (member.classCode === null || member.classCode.length === 0) {
         history.push({
-          pathname: '/ClassEnter',
-        });
-      } else if (member.companyNum === -1) {
-        history.push({
-          pathname: '/CompanyAppStandBy',
-        });
-      } else if (member.companyNum === 0 || member.companyNum === null) {
-        history.push({
-          pathname: '/CompanyAction',
-        });
-      } else {
-        history.push({
-          pathname: '/CompanyInfo',
-        });
-      }
+          pathname: '/map',
+      })
     }
   }
 
@@ -149,7 +137,7 @@ const LoginIn: React.FC<any> = props => {
         if (data.code === Values.FAIL_CODE) {
           enqueueSnackbar(ToastStr.LOGIN_FAIL, { variant: "error", autoHideDuration: SNACKBAR_TIME })
         } else {
-          //setCookie('access', data.jwt)
+          setCookie('access', data.jwt)
           axios.defaults.headers.common['Authorization'] = `Bearer ${data.jwt}`;
           setMember(data.member);
           handleLogin(data.member);
