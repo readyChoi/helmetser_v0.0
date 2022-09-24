@@ -16,7 +16,8 @@ import Login from './components/Login'
 import AuthEmail from './components/auth/Email'
 import AuthPassword from './components/auth/Password'
 import PersonalInfo from './components/auth/PersonalInfo'
-
+import New from './components/Map'
+import NewTest from './components/newTest'
 import Map from './components/Map'
 import MyPage from './components/MyPage'
 import MyUse from './components/Myuse';
