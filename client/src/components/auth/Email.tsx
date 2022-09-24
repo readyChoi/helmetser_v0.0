@@ -152,7 +152,7 @@ const AuthEmail: React.FC<any> = props => {
     const handleButton = (e: any) => {
         // e.preventDefault();
         if (auth) {
-            enqueueSnackbar(ToastStr.EMAIL_AUTH_SUCCESS_STR, { variant: "success", autoHideDuration: SNACKBAR_TIME })
+            enqueueSnackbar(ToastStr.EMAIL_ADDR_CHECK_SUC, { variant: "success", autoHideDuration: SNACKBAR_TIME })
         } else {
             // setAnimation(true);
             if (email.length === 0) {

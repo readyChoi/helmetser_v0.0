@@ -4,7 +4,7 @@ export const SNACKBAR_TIME = process.env.NODE_ENV === 'production' ? 5000 : 2000
 
 
 // path
-const VERSION = '/v0';
+const VERSION = '/v0'
 const SERVER_URL = 'http://13.125.36.254:5000'
 const SERVER_DEV_URL = 'http://localhost:5000'
 
@@ -23,7 +23,7 @@ const AUTH = '/auth'
 const JOIN = '/join'
 const LOGIN = '/login'
 const LOGOUT = '/logout'
-
+const PUSH = '/push'
 
 // object
 const APP = '/app'
@@ -66,6 +66,8 @@ export const member = {
     login : LOGIN,
     logout : LOGOUT,
     delete :  DELETE,
+
+    push: PUSH,    
 
     pwd_upd : PWD + UPD,
     token_upd : TOKEN + UPD,

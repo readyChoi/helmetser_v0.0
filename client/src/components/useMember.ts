@@ -4,7 +4,7 @@ const useMember = () => {
     const getToken = () => {
         const memberString = localStorage.getItem('member');
         const memberToken = (memberString === undefined || memberString === null) ? null : JSON.parse(memberString);
-
+        console.log('memberToken?', memberToken)
         return memberToken
     }
 
@@ -23,7 +23,7 @@ const useMember = () => {
 
     useEffect(() => {
         console.log('member is changed!', member)
-        // saveMember(member)
+        //setMember(member)
     }, [member])
 
     return {
